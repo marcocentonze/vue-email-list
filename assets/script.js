@@ -1,10 +1,17 @@
-const { createApp, ref } = Vue
+const { createApp } = Vue;
 
 createApp({
-  setup() {
-    const message = ref('Hello vue!')
+  data() {
     return {
-      message
-    }
-  }
-}).mount('#app')
+      randomEmail: [],
+    };
+  },
+  mounted() {
+    axios
+      .get("https://flynn.boolean.careers/exercises/api/random/mail")
+      .then((response) => {
+        console.log(response);
+        this.randomEmail = response.data.response;
+      });
+  },
+}).mount("#app");
