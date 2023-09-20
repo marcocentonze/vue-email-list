@@ -15,18 +15,19 @@
   <body>
 
 
-
     <div id="app">
-        
-        <div class="card">
-            <div class="card-body">
-              <ul>
-                <li v-for="(email, index) in randomEmails">{{email}}</li>
-              </ul>
-            </div>
+        <div class="card" v-if="randomEmails.length === 10"> <!--si visualizza la lista solo se sono 10 email-->
+          <div class="card-body">
+            <ul>
+              <li v-for="(email, index) in randomEmails">{{email}}</li>
+            </ul>
           </div>
+        </div>
+        <div v-else>
+          Ci siamo quasi
+        </div>
+      </div>
       
-    </div>
 
     
 
